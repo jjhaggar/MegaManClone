@@ -9,10 +9,27 @@
     <sprites name="player">
       <sprite>sprites\spr_player_idle</sprite>
       <sprite>sprites\spr_player_walk</sprite>
+      <sprite>sprites\spr_player_jump</sprite>
+    </sprites>
+    <sprites name="tiles">
+      <sprite>sprites\spr_wall</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_test</background>
+  </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\script_init_player_variables.gml</script>
+    <script>scripts\script_get_player_input.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_player</object>
+    <object>objects\obj_wall</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\roomTest</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
