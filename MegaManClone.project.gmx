@@ -20,8 +20,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\script_init_player_variables.gml</script>
-    <script>scripts\script_get_player_input.gml</script>
+    <script>scripts\script_player_init_variables.gml</script>
+    <script>scripts\script_player_get_input.gml</script>
+    <script>scripts\script_player_handle_animations.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
