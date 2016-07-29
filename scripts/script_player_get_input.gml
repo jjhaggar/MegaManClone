@@ -71,7 +71,7 @@ if (place_meeting(x,y+vel_ver, obj_wall)) // Si el personaje chocaría con el su
 y += vel_ver;
 
 
-// Actualizar el estado y hacia donde está mirando el personaje -------------------------------------------------------------------------------
+// Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
 
 if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
 {
@@ -88,14 +88,4 @@ if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
 if (vel_ver != 0)
 {
     mi_estado_actual = ANIM_PERSONAJE.saltando;
-}
-
-if (vel_hor > 0)
-{
-mira_a_dcha = true;
-}
-
-if (vel_hor < 0)
-{
-mira_a_dcha = false;
 }

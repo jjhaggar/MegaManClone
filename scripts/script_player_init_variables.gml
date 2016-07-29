@@ -25,4 +25,4 @@ mira_a_dcha = true;
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;
 
-surface_resize(application_surface, display_get_width(), display_get_height());
+
