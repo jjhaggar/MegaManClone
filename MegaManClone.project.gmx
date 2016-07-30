@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_enemy_damage</sound>
+    <sound>sound\snd_player_shot</sound>
+    <sound>sound\mus_stage_01</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="player">
       <sprite>sprites\spr_player_idle</sprite>
@@ -50,6 +54,7 @@
       <script>scripts\script_enemy_b_init.gml</script>
       <script>scripts\script_enemy_b_update.gml</script>
     </scripts>
+    <script>scripts\script_room_start.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

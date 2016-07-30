@@ -74,6 +74,7 @@ if (tecla_disparo)
         obj_proyectil = instance_create(x-correccion_x_proyectil, y+correccion_y_proyectil, obj_shot);
         obj_proyectil.vel_horiz_bala  = -vel_proyectil;
     }
+    audio_play_sound(snd_player_shot, 10, false);
     personaje_esta_disparando = true;
     momento_inicio_disparo = current_time;
 }
