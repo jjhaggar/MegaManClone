@@ -19,21 +19,32 @@ if mouse_check_button_pressed(mb_left) // Si se hace click con el ratón...
 // Recoger el input de teclado del jugador en 3 variables. El método keyboard_check(tecla) devuelve 1 ó 0 ------------------------------------
 tecla_derecha = keyboard_check(vk_right);
 tecla_izquierda = -keyboard_check(vk_left);
-tecla_salto = keyboard_check_pressed(vk_space);
+tecla_salto = keyboard_check_pressed(ord('Z'));
+tecla_disparo = keyboard_check_pressed(ord('X')); 
 
 
 
-//Reaccionar al input del teclado y a la gravedad --------------------------------------------------------------------------------------------
+// Reaccionar al input del teclado y a la gravedad -------------------------------------------------------------------------------------------
 
 // Pulsar derecha e izquierda:
 movimiento_horizontal = tecla_izquierda + tecla_derecha; // Si se pulsan izq y dcha a la vez, el movimiento horizontal sería 0...
 vel_hor = movimiento_horizontal * vel_andar; // ... pero en caso contrario, la vel_andar se multiplicaría por +1 ó -1.
+if (movimiento_horizontal > 0)
+{
+    mira_a_dcha = true;
+}
+if (movimiento_horizontal < 0)
+{
+    mira_a_dcha = false;
+}
+
 
 // Caer:
 if (vel_ver < vel_max_caida) // Si no se supera la velocidad máxima de caída...
 {
     vel_ver += gravedad; // ... se sigue aumentando la velocidad vertical del personaje.
 }
+
 
 // Saltar:
 if (place_meeting(x, y + 1, obj_wall)) // Si la "x" y la "y+1" del personaje coinciden con la posición de un bloque obj_wall...
@@ -44,6 +55,25 @@ if (place_meeting(x, y + 1, obj_wall)) // Si la "x" y la "y+1" del personaje coi
     }
 }
  
+
+// Disparar
+if (tecla_disparo)
+{
+    show_debug_message("bang!"); // Esto muestra mensajes por consola, es útil para debugging (detectar errores)
+    
+    var oprojectile;
+    if (mira_a_dcha)
+    {
+        oprojectile = instance_create(x+3 , y, obj_shot);
+        oprojectile.vel_horiz_bala  = vel_proyectil;
+    }
+    else
+    {
+        oprojectile = instance_create(x-3, y, obj_shot);
+        oprojectile.vel_horiz_bala  = -vel_proyectil;
+    }
+}
+
 
 
 // Colisiones Horizontales --------------------------------------------------------------------------------------------------------------------
@@ -71,8 +101,8 @@ if (place_meeting(x,y+vel_ver, obj_wall)) // Si el personaje chocaría con el su
 y += vel_ver;
 
 
-// Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
 
+// Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
 if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
 {
     if (vel_hor == 0 && vel_ver == 0)

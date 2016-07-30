@@ -22,6 +22,9 @@ mi_estado_actual = ANIM_PERSONAJE.quieto;
 // Inicializar a dónde mira el personaje
 mira_a_dcha = true;
 
+// Controlar la velocidad del disparo
+vel_proyectil = 10;
+
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;
 
