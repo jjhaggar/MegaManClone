@@ -14,7 +14,10 @@ enum ANIM_PERSONAJE
 {
     quieto,
     andando,
-    saltando
+    saltando,
+    disparando_quieto,
+    disparando_andando,
+    disparando_saltando
     // Etc.
 }
 mi_estado_actual = ANIM_PERSONAJE.quieto;
@@ -24,6 +27,10 @@ mira_a_dcha = true;
 
 // Controlar la velocidad del disparo
 vel_proyectil = 10;
+momento_inicio_disparo = current_time;
+momento_actual  = current_time;
+tiempo_disparando = 200; //steps
+personaje_esta_disparando = false;
 
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;

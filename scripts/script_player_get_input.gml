@@ -61,19 +61,26 @@ if (tecla_disparo)
 {
     show_debug_message("bang!"); // Esto muestra mensajes por consola, es útil para debugging (detectar errores)
     
-    var oprojectile;
+    var obj_proyectil;
+    var correccion_x_proyectil = 6;
+    var correccion_y_proyectil = -1;
     if (mira_a_dcha)
     {
-        oprojectile = instance_create(x+3 , y, obj_shot);
-        oprojectile.vel_horiz_bala  = vel_proyectil;
+        obj_proyectil = instance_create(x+correccion_x_proyectil , y+correccion_y_proyectil, obj_shot);
+        obj_proyectil.vel_horiz_bala  = vel_proyectil;
     }
     else
     {
-        oprojectile = instance_create(x-3, y, obj_shot);
-        oprojectile.vel_horiz_bala  = -vel_proyectil;
+        obj_proyectil = instance_create(x-correccion_x_proyectil, y+correccion_y_proyectil, obj_shot);
+        obj_proyectil.vel_horiz_bala  = -vel_proyectil;
     }
+    personaje_esta_disparando = true;
+    momento_inicio_disparo = current_time;
 }
-
+if (personaje_esta_disparando && (current_time - momento_inicio_disparo) >= tiempo_disparando)
+{
+    personaje_esta_disparando = false;
+}
 
 
 // Colisiones Horizontales --------------------------------------------------------------------------------------------------------------------
@@ -107,15 +114,23 @@ if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
 {
     if (vel_hor == 0 && vel_ver == 0)
     {
-        mi_estado_actual = ANIM_PERSONAJE.quieto;
+        if (personaje_esta_disparando)
+            mi_estado_actual = ANIM_PERSONAJE.disparando_quieto;
+        else    
+            mi_estado_actual = ANIM_PERSONAJE.quieto;
     }
     if (vel_hor != 0 && vel_ver == 0)
     {
-        mi_estado_actual = ANIM_PERSONAJE.andando;
+        if (personaje_esta_disparando)
+            mi_estado_actual = ANIM_PERSONAJE.disparando_andando;
+        else
+            mi_estado_actual = ANIM_PERSONAJE.andando;
     }
 }
-
 if (vel_ver != 0)
 {
-    mi_estado_actual = ANIM_PERSONAJE.saltando;
+    if (personaje_esta_disparando)
+        mi_estado_actual = ANIM_PERSONAJE.disparando_saltando;    
+    else
+        mi_estado_actual = ANIM_PERSONAJE.saltando;
 }
