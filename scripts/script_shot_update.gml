@@ -11,7 +11,7 @@ if instancia_enemigo != noone
 
 x += vel_horiz_bala;
 
-if (abs(posicion_inicial - x) > distancia_alcance)
+if (abs(posicion_inicial - x) > distancia_alcance) // Si la bala se aleja demasiado desaparece
 {
     instance_destroy();
 }

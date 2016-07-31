@@ -8,8 +8,13 @@ vel_ver = 0; // Velocidad vertical actual
 vel_salto = 12; // Velocidad salto
 vel_max_caida = 10; // Velocidad máxima de caída
 
-vida_maxima = 27
+vida_maxima = 27;
 vida = vida_maxima;
+
+numero_maximo_vidas = 9;
+numero_vidas = numero_maximo_vidas;
+
+puntos = 0;
 
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;
@@ -42,9 +47,8 @@ personaje_esta_disparando = false;
 // Control del jugador sobre el personaje
 personaje_controlable = true;
 
-
 // Vulnerabilidad del personaje a los enemigos etc
 personaje_vulnerable = true;
-tiempo_invulnerable = 30; //steps
-tiempo_invulnerable_actual = 0;
 personaje_muerto = false;
+invulnerabilidad_tras_impacto = 15;
+invulnerabilidad_tras_muerte = 30;

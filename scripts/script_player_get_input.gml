@@ -151,6 +151,8 @@ if (personaje_vulnerable)
     if (inst_enemigo != noone)
     {    
         vida -= inst_enemigo.danyo;
+        personaje_controlable = false;
+        
         show_debug_message(vida);
         
         if (vida > 0)
@@ -158,7 +160,6 @@ if (personaje_vulnerable)
             mi_estado_actual = ANIM_PERSONAJE.recibiendo_golpe;
             audio_play_sound(snd_player_damage, 10, false);
             personaje_vulnerable = false;
-            tiempo_invulnerable_actual = tiempo_invulnerable;
         }
         else
         {
@@ -174,7 +175,18 @@ else //el personaje está invulnerable, o bien porque acaba de morir o porque ha
     {
         if (image_index == (image_number-1))
         {
-            instance_destroy();
+            if (numero_vidas >= 0)
+            {
+                alarm[0] = invulnerabilidad_tras_muerte; // la alarma[0] hace personaje_vulnerable = true;
+                personaje_controlable = true;
+                numero_vidas--;
+                vida = vida_maxima;
+                mi_estado_actual = ANIM_PERSONAJE.saltando;
+            }
+            else
+            {
+                instance_destroy();
+            }
         }
     }
     
@@ -191,16 +203,9 @@ else //el personaje está invulnerable, o bien porque acaba de morir o porque ha
         
         if (image_index == (image_number-1))
         {
+            alarm[0] = invulnerabilidad_tras_impacto; // la alarma[0] hace personaje_vulnerable = true;
+            personaje_controlable = true;
             mi_estado_actual = ANIM_PERSONAJE.saltando;
-        }
-    }
-    
-    if (sprite_index != spr_player_gethit && sprite_index != spr_player_death)
-    {
-        tiempo_invulnerable_actual--;
-        if (tiempo_invulnerable_actual <= 0)
-        {
-            personaje_vulnerable = true;
         }
     }
 }

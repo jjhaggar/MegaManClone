@@ -42,6 +42,7 @@
       <sprite>sprites\spr_hud_player_health_mark</sprite>
       <sprite>sprites\spr_hud_enemy_base</sprite>
       <sprite>sprites\spr_hud_enemy_health_mark</sprite>
+      <sprite>sprites\spr_bitmap_font</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -73,6 +74,9 @@
       <script>scripts\script_gui_update.gml</script>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_press_start_2p</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
