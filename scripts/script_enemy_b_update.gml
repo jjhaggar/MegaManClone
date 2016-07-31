@@ -13,3 +13,36 @@ if (vida <= 0)
     }    
 }
 
+if instance_exists (obj_player)
+{
+    if distance_to_object(obj_player) < 200
+    {
+        enemigo_activo = true;
+    }
+}
+
+if (enemigo_activo)
+{
+    if (subiendo)
+    {
+        if (y >= y_final)
+        {
+            y -= velocidad_vuelo;
+        }
+        else 
+        {
+            subiendo = false;
+        }
+    }
+    if (!subiendo)
+    {
+        if (y <= y_inicial)
+        {
+            y += velocidad_vuelo;
+        }
+        else 
+        {
+            subiendo = true;
+        }
+    }
+}

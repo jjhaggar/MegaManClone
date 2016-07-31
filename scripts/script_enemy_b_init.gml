@@ -7,3 +7,10 @@ danyo = 1;
 puntos = 200;
 puede_volar = true;
 
+distancia_vuelo = 100;
+velocidad_vuelo = 3;
+subiendo = true;
+y_inicial = y;
+y_final = y_inicial - distancia_vuelo;
+
+enemigo_activo = false;
