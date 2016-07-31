@@ -22,7 +22,8 @@
       <sprite>sprites\spr_player_gethit</sprite>
       <sprite>sprites\spr_player_death</sprite>
     </sprites>
-    <sprites name="tiles">
+    <sprites name="tiles_and_props">
+      <sprite>sprites\spr_door</sprite>
       <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="projectiles">
@@ -69,6 +70,7 @@
     <scripts name="functions">
       <script>scripts\script_sumar_dos_numeros.gml</script>
     </scripts>
+    <script>scripts\script_room_ends.gml</script>
     <script>scripts\script_room_start.gml</script>
     <scripts name="hud_and_menus">
       <script>scripts\script_gui_update.gml</script>
@@ -78,6 +80,7 @@
     <font>fonts\fnt_press_start_2p</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_door</object>
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_shot</object>

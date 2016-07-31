@@ -109,6 +109,18 @@ if (place_meeting(x,y+vel_ver, obj_wall)) // Si el personaje chocaría con el su
 y += vel_ver;
 
 
+// Fin de fase ----------------------------------------------------------------------------------------------------------------------------------
+var margen_x = 3;
+var margen_y = 6;
+if (obj_player.x <= obj_door.x+ margen_x && obj_player.x >= obj_door.x - margen_x)
+{
+    if (obj_player.x <= obj_door.y+ margen_y && obj_player.y >= obj_door.y - margen_y)
+    {
+        script_execute(script_room_ends, roomTest);
+        // script_execute(script_room_ends, room1);
+    }
+}
+
 
 // Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
 
