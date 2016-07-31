@@ -8,8 +8,12 @@ vel_ver = 0; // Velocidad vertical actual
 vel_salto = 12; // Velocidad salto
 vel_max_caida = 10; // Velocidad máxima de caída
 
+vida = 20;
 
-// Implementar máquina de estados e inicializar mi_estado_actual
+// Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
+image_speed = 0.5;
+
+// Implementar máquina de estados de animaciones e inicializar animacion_personaje
 enum ANIM_PERSONAJE
 {
     quieto,
@@ -17,12 +21,14 @@ enum ANIM_PERSONAJE
     saltando,
     disparando_quieto,
     disparando_andando,
-    disparando_saltando
+    disparando_saltando,
+    recibiendo_golpe,
+    muriendo
     // Etc.
 }
 mi_estado_actual = ANIM_PERSONAJE.quieto;
 
-// Inicializar a dónde mira el personaje
+// Inicializar hacia dónde mira el personaje
 mira_a_dcha = true;
 
 // Controlar la velocidad del disparo
@@ -32,7 +38,12 @@ momento_actual  = current_time;
 tiempo_disparando = 200; //steps
 personaje_esta_disparando = false;
 
-// Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
-image_speed = 0.5;
+// Control del jugador sobre el personaje
+personaje_controlable = true;
 
 
+// Vulnerabilidad del personaje a los enemigos etc
+personaje_vulnerable = true;
+tiempo_invulnerable = 30; //steps
+tiempo_invulnerable_actual = 0;
+personaje_muerto = false;

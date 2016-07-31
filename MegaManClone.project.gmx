@@ -5,8 +5,10 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_enemy_damage</sound>
     <sound>sound\snd_player_shot</sound>
+    <sound>sound\snd_player_damage</sound>
+    <sound>sound\snd_player_death</sound>
+    <sound>sound\snd_enemy_damage</sound>
     <sound>sound\mus_stage_01</sound>
   </sounds>
   <sprites name="sprites">
@@ -17,6 +19,8 @@
       <sprite>sprites\spr_player_shooting_idle</sprite>
       <sprite>sprites\spr_player_shooting_jump</sprite>
       <sprite>sprites\spr_player_shooting_walk</sprite>
+      <sprite>sprites\spr_player_gethit</sprite>
+      <sprite>sprites\spr_player_death</sprite>
     </sprites>
     <sprites name="tiles">
       <sprite>sprites\spr_wall</sprite>
@@ -53,6 +57,9 @@
       <script>scripts\script_enemy_a_update.gml</script>
       <script>scripts\script_enemy_b_init.gml</script>
       <script>scripts\script_enemy_b_update.gml</script>
+    </scripts>
+    <scripts name="functions">
+      <script>scripts\script_sumar_dos_numeros.gml</script>
     </scripts>
     <script>scripts\script_room_start.gml</script>
   </scripts>

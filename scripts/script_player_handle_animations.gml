@@ -37,6 +37,18 @@ switch (mi_estado_actual)
         sprite_index = spr_player_shooting_jump;
     }; 
     break;
+    
+    case ANIM_PERSONAJE.recibiendo_golpe:
+    {
+        sprite_index = spr_player_gethit;
+    }; 
+    break;
+    
+    case ANIM_PERSONAJE.muriendo:
+    {
+        sprite_index = spr_player_death;
+    }; 
+    break;
 }
 
 // Dependiendo de si se mueve el personaje horizontalmente, voltear sprite a un lado u otro

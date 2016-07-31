@@ -59,8 +59,6 @@ if (place_meeting(x, y + 1, obj_wall)) // Si la "x" y la "y+1" del personaje coi
 // Disparar
 if (tecla_disparo)
 {
-    show_debug_message("bang!"); // Esto muestra mensajes por consola, es útil para debugging (detectar errores)
-    
     var obj_proyectil;
     var correccion_x_proyectil = 6;
     var correccion_y_proyectil = -1;
@@ -111,27 +109,96 @@ y += vel_ver;
 
 
 // Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
-if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
+
+if (sprite_index != spr_player_gethit && sprite_index != spr_player_death)
 {
-    if (vel_hor == 0 && vel_ver == 0)
+    if (place_meeting(x, y + 1, obj_wall)) // Si estamos pisando el suelo
     {
-        if (personaje_esta_disparando)
-            mi_estado_actual = ANIM_PERSONAJE.disparando_quieto;
-        else    
-            mi_estado_actual = ANIM_PERSONAJE.quieto;
+        if (vel_hor == 0 && vel_ver == 0)
+        {
+            if (personaje_esta_disparando)
+                mi_estado_actual = ANIM_PERSONAJE.disparando_quieto;
+            else    
+                mi_estado_actual = ANIM_PERSONAJE.quieto;
+        }
+        if (vel_hor != 0 && vel_ver == 0)
+        {
+            if (personaje_esta_disparando)
+                mi_estado_actual = ANIM_PERSONAJE.disparando_andando;
+            else
+                mi_estado_actual = ANIM_PERSONAJE.andando;
+        }
     }
-    if (vel_hor != 0 && vel_ver == 0)
+    if (vel_ver != 0)
     {
         if (personaje_esta_disparando)
-            mi_estado_actual = ANIM_PERSONAJE.disparando_andando;
+            mi_estado_actual = ANIM_PERSONAJE.disparando_saltando;    
         else
-            mi_estado_actual = ANIM_PERSONAJE.andando;
+            mi_estado_actual = ANIM_PERSONAJE.saltando;
     }
 }
-if (vel_ver != 0)
+
+
+
+// Colisión con enemigos ----------------------------------------------------------------------------------------------------------------------
+
+if (personaje_vulnerable)
 {
-    if (personaje_esta_disparando)
-        mi_estado_actual = ANIM_PERSONAJE.disparando_saltando;    
-    else
-        mi_estado_actual = ANIM_PERSONAJE.saltando;
+    var inst_enemigo;
+    inst_enemigo = instance_place(x, y, obj_enemy);
+    if (inst_enemigo != noone)
+    {    
+        vida -= inst_enemigo.danyo;
+        show_debug_message(vida);
+        
+        if (vida > 0)
+        {
+            mi_estado_actual = ANIM_PERSONAJE.recibiendo_golpe;
+            audio_play_sound(snd_player_damage, 10, false);
+            personaje_vulnerable = false;
+            tiempo_invulnerable_actual = tiempo_invulnerable;
+        }
+        else
+        {
+            mi_estado_actual = ANIM_PERSONAJE.muriendo;
+            audio_play_sound(snd_player_death, 10, false);
+            personaje_vulnerable = false;   
+        }
+    }
+}
+else //el personaje está invulnerable, o bien porque acaba de morir o porque haya recibido un golpe y siga vivo
+{
+    if (sprite_index == spr_player_death)
+    {
+        if (image_index == (image_number-1))
+        {
+            instance_destroy();
+        }
+    }
+    
+    if (sprite_index == spr_player_gethit)
+    {
+        if (mira_a_dcha)
+        {
+            x--;
+        }
+        if (!mira_a_dcha)
+        {
+            x++;
+        }
+        
+        if (image_index == (image_number-1))
+        {
+            mi_estado_actual = ANIM_PERSONAJE.saltando;
+        }
+    }
+    
+    if (sprite_index != spr_player_gethit && sprite_index != spr_player_death)
+    {
+        tiempo_invulnerable_actual--;
+        if (tiempo_invulnerable_actual <= 0)
+        {
+            personaje_vulnerable = true;
+        }
+    }
 }
