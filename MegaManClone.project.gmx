@@ -36,6 +36,13 @@
       <sprite>sprites\spr_enemy_b_idle</sprite>
       <sprite>sprites\spr_enemy_death</sprite>
     </sprites>
+    <sprites name="hud_and_menus">
+      <sprite>sprites\spr_hud_test</sprite>
+      <sprite>sprites\spr_hud_player_base</sprite>
+      <sprite>sprites\spr_hud_player_health_mark</sprite>
+      <sprite>sprites\spr_hud_enemy_base</sprite>
+      <sprite>sprites\spr_hud_enemy_health_mark</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_test</background>
@@ -62,6 +69,9 @@
       <script>scripts\script_sumar_dos_numeros.gml</script>
     </scripts>
     <script>scripts\script_room_start.gml</script>
+    <scripts name="hud_and_menus">
+      <script>scripts\script_gui_update.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -72,6 +82,7 @@
       <object>objects\obj_enemy_a</object>
       <object>objects\obj_enemy_b</object>
     </objects>
+    <object>objects\obj_gui</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

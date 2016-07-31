@@ -8,7 +8,8 @@ vel_ver = 0; // Velocidad vertical actual
 vel_salto = 12; // Velocidad salto
 vel_max_caida = 10; // Velocidad máxima de caída
 
-vida = 20;
+vida_maxima = 27
+vida = vida_maxima;
 
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;

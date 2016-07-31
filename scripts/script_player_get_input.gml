@@ -7,10 +7,12 @@ if mouse_check_button_pressed(mb_left) // Si se hace click con el ratón...
     if window_get_fullscreen() // ... si el juego está a pantalla completa ...
     {
         window_set_fullscreen(false); // ... se quita la pantalla completa.
+        display_set_gui_size(432, 243);
     }
     else // ... de lo contrario (es decir, si no está a pantalla completa)...
     {
         window_set_fullscreen(true); // ... lo ponemos a pantalla completa.
+        display_set_gui_maximise(global.RELACION_ANCHO, global.RELACION_ALTO); // funciona
     }
 }
 
