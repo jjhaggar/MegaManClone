@@ -8,13 +8,18 @@ vel_ver = 0; // Velocidad vertical actual
 vel_salto = 12; // Velocidad salto
 vel_max_caida = 10; // Velocidad máxima de caída
 
-vida_maxima = 27;
-vida = vida_maxima;
+vida_maxima = 27; // Vida (energía) máxima del personaje
+//vida = vida_maxima; // Inicializamos la vida (energía) del personaje al máximo
 
-numero_maximo_vidas = 9;
-numero_vidas = numero_maximo_vidas;
+numero_maximo_vidas = 3; // Número de Vidas máximo del personaje
+//numero_vidas = numero_maximo_vidas; // Inicializamos el nº de vidas al máximo
 
-puntos = 0;
+if (room == 0 ) // Si entramos en la primera fase
+{
+    global.puntos = 0; // Ponemos los puntos a 0
+    global.numero_vidas = numero_maximo_vidas; // Inicializamos el nº de vidas al máximo
+    global.vida = vida_maxima; // Inicializamos la vida (energía) del personaje al máximo
+}
 
 // Asignar velocidad a las animaciones del personaje (por defecto su valor es 1, más rápido)
 image_speed = 0.5;
@@ -47,8 +52,7 @@ personaje_esta_disparando = false;
 // Control del jugador sobre el personaje
 personaje_controlable = true;
 
-// Vulnerabilidad del personaje a los enemigos etc
+// Vulnerabilidad del personaje a los enemigos, y tiempos de invulnerabilidad.
 personaje_vulnerable = true;
-personaje_muerto = false;
 invulnerabilidad_tras_impacto = 15;
 invulnerabilidad_tras_muerte = 30;

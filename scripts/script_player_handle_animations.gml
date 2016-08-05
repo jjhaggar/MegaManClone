@@ -52,8 +52,8 @@ switch (mi_estado_actual)
 }
 
 // Dependiendo de si se mueve el personaje horizontalmente, voltear sprite a un lado u otro
-if (movimiento_horizontal != 0)
+if (movimiento_horizontal != 0) // Si el personaje se mueve horizontalmente (movimiento_horizontal puede ser 1 ó -1)...
 {
-    image_xscale = movimiento_horizontal;
+    image_xscale = movimiento_horizontal; // ... con 1 la imagen estaría normal y con -1 se voltearía horizontalmente
 }
 
