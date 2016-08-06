@@ -14,7 +14,7 @@ vida_maxima = 27; // Vida (energía) máxima del personaje
 numero_maximo_vidas = 3; // Número de Vidas máximo del personaje
 //numero_vidas = numero_maximo_vidas; // Inicializamos el nº de vidas al máximo
 
-if (room == 0 ) // Si entramos en la primera fase
+if (room == room1 ) // Si entramos en la primera fase
 {
     global.puntos = 0; // Ponemos los puntos a 0
     global.numero_vidas = numero_maximo_vidas; // Inicializamos el nº de vidas al máximo

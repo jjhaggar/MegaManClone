@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>script_audio_init</script>
+            <script>sc_main_menu_init</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -53,6 +53,31 @@
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Hacer controlable el menu main
+show_debug_message("CONTROLA ESTO!");
+menu_controlable = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
         <id>601</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -67,7 +92,7 @@
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>script_audio_start_with_retard</script>
+            <script>sc_main_menu_update</script>
           </argument>
           <argument>
             <kind>0</kind>

@@ -12,6 +12,8 @@
   <showcolour>-1</showcolour>
   <code>/// Ejecutar script_room_start
 
+// instance_create(32, 128, obj_player); // Creamos un player
+
 script_execute(script_room_start);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>

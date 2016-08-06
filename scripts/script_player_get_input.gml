@@ -129,7 +129,7 @@ if (obj_player.x <= obj_door.x+ margen_x && obj_player.x >= obj_door.x - margen_
         script_execute(script_room_ends, room + 1); // ... se ejecuta el script de "script_room_ends", pasándole el valor de la siguiente habitación 
     }
 }
-
+show_debug_message(obj_door.x);
 
 
 // Actualizar el estado de la animación del personaje -------------------------------------------------------------------------------
@@ -206,7 +206,7 @@ else //... si no, el personaje está invulnerable, o bien porque acaba de morir 
                 if show_question("GAME OVER # ¿Jugar otra partida?") // Si se hace click en yes en la ventana con la pregunta:
                 {
                     global.puntos = 0;
-                    script_execute(script_room_ends, 0); // Se reinicia el juego desde la primera habitación (el número índice es 0)
+                    script_execute(script_room_ends, room_intro); // Se reinicia el juego desde la primera habitación (el número índice es 0)
                 }
                 else game_end(); // Si se hace click en no, se cierra el juego
             }

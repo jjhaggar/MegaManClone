@@ -1,6 +1,6 @@
 /// Actualizaciones enemigo tipo B
 
-vida = 27; // Vida del enemigo
+vida = 7; // Vida del enemigo
 danyo = 10;// Daño que hace el enemigo
 puntos = 3000; // Puntos que da el enemigo al ser derrotado
 

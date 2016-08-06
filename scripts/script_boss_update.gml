@@ -13,6 +13,7 @@ if (vida <= 0) // Si el boss pierde toda la vida
     {
         global.puntos += puntos; // Se suman sus puntos a los del jugador
         instance_destroy(); // Se destruye la instancia del boss
+        obj_door.x -= 64;
     }    
 }
 

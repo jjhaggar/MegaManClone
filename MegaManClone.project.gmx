@@ -6,9 +6,11 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="music">
+      <sound>sound\mus_intro</sound>
+      <sound>sound\mus_stage_01</sound>
       <sound>sound\mus_boss_loop</sound>
       <sound>sound\mus_boss_intro</sound>
-      <sound>sound\mus_stage_01</sound>
+      <sound>sound\mus_ending</sound>
     </sounds>
     <sound>sound\snd_player_shot</sound>
     <sound>sound\snd_player_damage</sound>
@@ -56,6 +58,8 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
+    <background>background\bg_ending</background>
+    <background>background\bg_intro</background>
     <background>background\bg_test</background>
   </backgrounds>
   <paths name="paths"/>
@@ -91,6 +95,9 @@
       <script>scripts\script_audio_start_with_retard.gml</script>
       <script>scripts\script_audio_init.gml</script>
     </scripts>
+    <script>scripts\sc_main_menu_init.gml</script>
+    <script>scripts\sc_main_menu_update.gml</script>
+    <script>scripts\sc_ending_update.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_press_start_2p</font>
@@ -108,12 +115,16 @@
       <object>objects\obj_boss_shot</object>
     </objects>
     <object>objects\obj_gui</object>
+    <object>objects\obj_ending</object>
+    <object>objects\obj_main_menu</object>
     <object>objects\obj_audio</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_intro</room>
     <room>rooms\room1</room>
     <room>rooms\room2</room>
     <room>rooms\room_boss</room>
+    <room>rooms\room_ending</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
