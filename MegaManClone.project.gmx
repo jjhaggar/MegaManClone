@@ -12,6 +12,8 @@
       <sound>sound\mus_boss_intro</sound>
       <sound>sound\mus_ending</sound>
     </sounds>
+    <sound>sound\snd_menu_select</sound>
+    <sound>sound\snd_menu_move</sound>
     <sound>sound\snd_player_shot</sound>
     <sound>sound\snd_player_damage</sound>
     <sound>sound\snd_player_death</sound>
@@ -84,7 +86,11 @@
       <script>scripts\script_boss_update.gml</script>
     </scripts>
     <scripts name="hud_and_menus">
+      <script>scripts\sc_main_menu_init.gml</script>
+      <script>scripts\sc_main_menu_update.gml</script>
+      <script>scripts\sc_main_menu_draw_update.gml</script>
       <script>scripts\script_gui_update.gml</script>
+      <script>scripts\sc_ending_update.gml</script>
     </scripts>
     <scripts name="rooms">
       <script>scripts\script_room_ends.gml</script>
@@ -95,9 +101,6 @@
       <script>scripts\script_audio_start_with_retard.gml</script>
       <script>scripts\script_audio_init.gml</script>
     </scripts>
-    <script>scripts\sc_main_menu_init.gml</script>
-    <script>scripts\sc_main_menu_update.gml</script>
-    <script>scripts\sc_ending_update.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_press_start_2p</font>
