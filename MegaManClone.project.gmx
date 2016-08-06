@@ -5,11 +5,15 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sounds name="music">
+      <sound>sound\mus_boss_loop</sound>
+      <sound>sound\mus_boss_intro</sound>
+      <sound>sound\mus_stage_01</sound>
+    </sounds>
     <sound>sound\snd_player_shot</sound>
     <sound>sound\snd_player_damage</sound>
     <sound>sound\snd_player_death</sound>
     <sound>sound\snd_enemy_damage</sound>
-    <sound>sound\mus_stage_01</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="player">
@@ -27,10 +31,15 @@
       <sprite>sprites\spr_wall</sprite>
     </sprites>
     <sprites name="projectiles">
-      <sprite>sprites\spr_enemy_shot</sprite>
       <sprite>sprites\spr_normal_shot</sprite>
+      <sprite>sprites\spr_enemy_shot</sprite>
+      <sprite>sprites\spr_boss_shot</sprite>
     </sprites>
     <sprites name="enemies">
+      <sprite>sprites\spr_boss_opening_eye</sprite>
+      <sprite>sprites\spr_boss_opened_eye</sprite>
+      <sprite>sprites\spr_boss_closing_eye</sprite>
+      <sprite>sprites\spr_boss_closed_eye</sprite>
       <sprite>sprites\spr_enemy_a_idle</sprite>
       <sprite>sprites\spr_enemy_a_hide</sprite>
       <sprite>sprites\spr_enemy_a_show</sprite>
@@ -59,12 +68,16 @@
     <scripts name="projectiles">
       <script>scripts\script_shot_init.gml</script>
       <script>scripts\script_shot_update.gml</script>
+      <script>scripts\script_boss_shot_init.gml</script>
+      <script>scripts\script_boss_shot_update.gml</script>
     </scripts>
     <scripts name="enemies">
       <script>scripts\script_enemy_a_init.gml</script>
       <script>scripts\script_enemy_a_update.gml</script>
       <script>scripts\script_enemy_b_init.gml</script>
       <script>scripts\script_enemy_b_update.gml</script>
+      <script>scripts\script_boss_init.gml</script>
+      <script>scripts\script_boss_update.gml</script>
     </scripts>
     <scripts name="hud_and_menus">
       <script>scripts\script_gui_update.gml</script>
@@ -75,6 +88,8 @@
     </scripts>
     <scripts name="functions">
       <script>scripts\script_sumar_dos_numeros.gml</script>
+      <script>scripts\script_audio_start_with_retard.gml</script>
+      <script>scripts\script_audio_init.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -86,16 +101,19 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_shot</object>
     <objects name="enemies">
+      <object>objects\obj_boss</object>
       <object>objects\obj_enemy</object>
       <object>objects\obj_enemy_a</object>
       <object>objects\obj_enemy_b</object>
+      <object>objects\obj_boss_shot</object>
     </objects>
     <object>objects\obj_gui</object>
+    <object>objects\obj_audio</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
     <room>rooms\room2</room>
-    <room>rooms\room3</room>
+    <room>rooms\room_boss</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

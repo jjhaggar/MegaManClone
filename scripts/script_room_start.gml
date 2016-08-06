@@ -1,7 +1,6 @@
 /// Inicio de fase
 
-global.musica = audio_play_sound(mus_stage_01, 10, true); // Se reproduce la música
-audio_sound_gain(global.musica, 0.5, 0); // Se ajusta elvolumen al 50%
+instance_create(x, y, obj_audio); // Creamos un manejador de audio
 
 instance_create(x, y, obj_gui); // Creamos un gui en la room
 
